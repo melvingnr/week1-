@@ -137,7 +137,7 @@
 
 ## 12. Rollout & Release Plan
 
--Phasing:
+- Phasing:
   - Week 1: Prayer requests + announcements.
   - Week 2: Youth sign-ups + digital giving.
 - Release Channels: Demo via GitHub repo and class presentation.
