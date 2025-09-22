@@ -8,53 +8,84 @@
 >
 ## 1. Document Information
 
-- Product/Feature Name: TODO
-- Author(s): TODO
-- Date Created: TODO (YYYY-MM-DD)
-- Last Updated: TODO (YYYY-MM-DD)
+- Product/Feature Name: Church Connect+
+- Author(s): Melvin Nieves Rivera
+- Date Created: TODO (9/13)
+- Last Updated: TODO (9/21)
 - Version: 0.1 (Draft)
 
 ---
 
 ## 2. Overview
 
-- Summary: One paragraph on what this is and why it matters.
-- Problem Statement: What problem are we solving for users or the business?
-- Goals & Objectives: What success looks like; 3–5 bullets.
-- Non-Goals: Explicitly list what’s out of scope to avoid scope creep.
+- Summary: Church Connect+ is a lightweight, Django-based application designed for small to mid-sized churches. It improves community engagement and administrative efficiency by offering prayer request management, youth group sign-ups with attendance tracking, digital tithes and offerings, and a centralized announcements board.
+
+- Problem Statement: Small congregations lack affordable, simple, and accessible tools to track youth engagement, manage prayer requests, collect digital offerings, and distribute announcements. Existing commercial church management tools are too expensive and overly complex.
+  
+- Goals & Objectives:
+ - Increase youth engagement and sign-up consistency.
+ - Provide transparent, centralized prayer request tracking.
+ - Enable secure and convenient digital giving.
+ - Streamline weekly announcements for leaders and members.
+
+- Non-Goals:
+  - Not a full-scale church management suite.
+  - Not offering livestreaming, sermon archiving, or advanced accounting features in MVP.
+
 
 ---
 
 ## 3. Context & Background
 
-- Business Context: Link to strategy, OKRs, or initiatives.
-- Market/Customer Insights: Personas, research, or data supporting the need.
-- Competitive/Benchmark References: Optional, if applicable.
+- Business Context: Aligns with faith community goals of engagement, transparency, and connection. Serves as a portfolio-ready project for showcasing Django CRUD, authentication, and workflow logic.
+
+- Market/Customer Insights: Pew Research (2024) shows congregations adopting digital tools; Lifeway Research (2023) highlights youth attendance struggles; Barna (2022) emphasizes digital giving trends.
+
+- Competitive/Benchmark References: Unlike enterprise-level tools, Church Connect+ focuses only on the 4 features churches need most.
 
 ---
 
 ## 4. Scope
 
-- In Scope: Bullet list of included features/capabilities.
+- In Scope:
+  - Prayer requests module with moderation and “answered” toggle.
+  - Youth group sign-ups with attendance logs.
+  - Digital giving integration via Zelle + donation log.
+  - Announcements board for weekly updates.
+
 - Out of Scope: Bullet list of excluded items to prevent ambiguity.
+  - Accounting/budgeting tools.
+  - Personalized profiles.
+  - Mobile apps, livestreaming, or media management.
 
 ---
 
 ## 5. User Stories & Use Cases
 
-- Primary User Persona(s): Who benefits?
-- User Stories:
-  - As a [user], I want [feature], so that [benefit].
-  - As a [role], I can [action], so that [outcome].
-- Use Case Scenarios: Happy path and 1–2 edge cases.
+- Primary User Persona(s):
+  - Youth members and parents.
+  - Congregation members.
+  - Church leaders/pastors.
+  - Finance/admin staff.
 
+- User Stories:
+  - As a youth member, I want sign up for events so I can attend consistently.
+  - As a congregation member, I want to submit prayer requests so the church can support me.
+  - As a finance staff member, I want to track donations so I can report transparently.
+  - As a leader, I want to post announcements so members stay informed.
+
+- Use Case Scenarios: Happy path and 1–2 edge cases.
+  - Happy path: Member logs in > submits prayer request > leader approves > congregation views.
+  - Edge case: Youth signs up for event but slot is full > receives error message.
+ 
 ---
 
 ## 6. Functional Requirements
 
-- FR-001: Requirement text
-- FR-002: Requirement text
-- FR-003: Requirement text
+- FR-001: Users can create, read, update, and delete prayer requests (with leader moderation).
+- FR-002: Users can sign up for youth events and attendance can be logged.
+- FR-003: Members can access a secure embedded link for digital giving.
+- FR-004: Leaders can post, edit, and delete announcements.
 
 > Tip: Tie each FR to a user story or acceptance criteria below.
 
@@ -62,57 +93,68 @@
 
 ## 7. Non-Functional Requirements
 
-- Performance: e.g., p95 response time under 200 ms
-- Scalability: expected load, growth assumptions
-- Accessibility: WCAG targets, keyboard nav, color contrast
-- Security/Compliance: authz/authn, data handling, PII, regulatory
-- Reliability/Availability: SLOs, error budgets, degradation behavior
+- Performance: Load times under 2s per page.
+- Scalability: Handle 100 concurrent users.
+- Accessibility: WCAG 2.2 compliance (keyboard navigation, contrast).
+- Security/Compliance: Encrypted donations, secure logins, privacy for sensitive prayer requests.
+- Reliability/Availability: 99% uptime for prayer/announcement modules.
 
 ---
 
 ## 8. Dependencies
 
-- Internal system dependencies
-- External APIs/third-party services
-- Cross-team deliverables
+- Django framework
+- Zelle or similar digital banking APIs.
+- GitHub repo for hosting code.
 
 ---
 
 ## 9. Risks & Assumptions
 
-- Risks: Potential pitfalls and mitigation strategies.
-- Assumptions: Preconditions believed to be true.
+- Risks: Low adoption of digital giving; youth may not sign up consistently; privacy concerns with prayer requests; risk of scope creep.
+- Assumptions: Congregation members have smartphones/internet; leaders can moderate requests weekly.
 
 ---
 
 ## 10. Acceptance Criteria
 
 - Clear, testable conditions for acceptance.
-- Example: FR-001 passes when a user uploads a file up to 100 MB within 3 s without error.
-
+  - FR-001: Passes if members can submit prayer requests, and leaders can approve/deny them.
+  - FR-002: Passes if youth can sign up for an event and attendance is logged successfully.
+  - FR-003: Passes if members can complete a donation via embedded Zelle link and log is generated.
+  - FR-004: Passes if announcements can be added, viewed, and deleted without error.
+    
 ---
 
 ## 11. Success Metrics
 
-- KPIs or OKRs that indicate success (adoption %, NPS, revenue impact, error reduction, task completion rate).
+- 20% increase in youth sign-ups.
+- At least 25% of offerings submitted digitally.
+- Weekly export of prayer and donation logs.
+- Leaders reduce bulletin prep time by 30–40%.
 
 ---
 
 ## 12. Rollout & Release Plan
 
-- Phasing: MVP vs. future iterations.
-- Release Channels: Beta, staged rollout, general availability.
-- Training/Documentation Needs: Internal docs, support guides, user education.
+-Phasing:
+  - Week 1: Prayer requests + announcements.
+  - Week 2: Youth sign-ups + digital giving.
+- Release Channels: Demo via GitHub repo and class presentation.
+- Training/Documentation Needs: README instructions + lightweight support guide for church staff.
 
 ---
 
 ## 13. Open Questions
 
-- Outstanding decisions or unresolved questions.
+- Should advanced permissions (roles: admin vs member) be part of MVP?
+- Should donations include automatic receipts or manual logging only?
 
 ---
 
 ## 14. References
 
-- Links to related PRDs, design records, ADRs, technical specs, or strategy docs.
-- Example: FR-001 passes when a user uploads a file up to 100 MB within 3 s without error.
+- Pew Research (2024), Lifeway (2023), Barna (2022).
+- WCAG 2.2 standards.
+- Layman, Understand Django
+- RealPython: https://realpython.com/build-a-blog-from-scratch-django/
